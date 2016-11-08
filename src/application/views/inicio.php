@@ -4,23 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="es">
 <head>
     <title>Encuesta sobre inform&aacute;ticos de Paraguay</title>
-    <meta charset="utf-8" />
 
-    <!-- Estilos -->
-    <link rel="stylesheet" href="<?php echo base_url(); ?>/recursos/css/libs/bootstrap-3.3.6-dist/css/bootstrap.min.css" charset="utf-8">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>/recursos/js/libs/leaflet/leaflet.css" charset="utf-8">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>/recursos/js/libs/leaflet/plugins/leaflet-search/leaflet-search.min.css" charset="utf-8">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>/recursos/css/estilos.css" charset="utf-8">
-
-    <!-- JS -->
-    <script src="<?php echo base_url(); ?>/recursos/js/libs/JQuery/jquery-2.1.4.js" type="text/javascript" charset="utf-8"></script>
-    <script src="<?php echo base_url(); ?>/recursos/css/libs/bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="<?php echo base_url(); ?>/recursos/js/libs/leaflet/leaflet.js" type="text/javascript" charset="utf-8"></script>
-    <script src="<?php echo base_url(); ?>/recursos/js/libs/leaflet/plugins/leaflet-search/leaflet-search.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="<?php echo base_url(); ?>/recursos/js/mapaOSM.js" type="text/javascript" charset="utf-8"></script>
+    <?php $this->load->view('comunes/cabecera');?>
 </head>
 <body onLoad="cargarMapa()">
-
     <header>
        <div class="container">
            <div class="row">
@@ -44,7 +31,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                </div>
            </div>
       </div>
-
     </header>
 
     <div class="container">
@@ -102,7 +88,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 
     <footer>
-        Creado por Proyectos Beta el 2016
+        <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+            <div class="container text-center">
+                <p class="navbar-text col-md-12 col-sm-12 col-xs-12">
+                    <?php $this->load->view('comunes/pie_pagina');?>
+                </p>
+            </div>
+        </nav>
     </footer>
 </body>
 </html>
