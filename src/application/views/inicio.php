@@ -6,6 +6,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <title>Encuesta sobre inform&aacute;ticos de Paraguay</title>
 
     <?php $this->load->view('comunes/cabecera');?>
+
+    <script>
+        $(document).ready(function(){
+            $("#encuesta").submit(function(event){
+                // Cancels the form submission.
+                event.preventDefault();
+                submitForm();
+            });
+        });
+
+        function submitForm(){
+            console.log("enviar2");
+            $.ajax({
+                type: "POST",
+                url: "Encuesta/enviarDatos",
+                data: $('form.encuesta').serialize(),
+                success: function(msg){
+                    formSuccess();
+                },
+                error: function(){
+                    alert("failure");
+                }
+            });
+        }
+
+        function formSuccess(){
+            $("#msgSubmit").removeClass( "hidden" );
+        }
+    </script>
 </head>
 <body onLoad="cargarMapa()">
     <header>
@@ -37,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <div class="col-md-6">
                 <div class="well well-sm">
-                    <form class="form-horizontal" method="post">
+                    <form id="encuesta" class="encuesta" method="post">
                         <fieldset>
                             <legend class="text-center header">Encuesta</legend>
                             <div class="form-group">
@@ -61,7 +90,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12 text-center">
-                                    <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+                                    <button type="submit" id="submit" class="btn btn-primary btn-lg">Enviar</button>
+                                    <div id="msgSubmit" class="h3 text-center hidden">Encuesta enviada!!!</div>
                                 </div>
                             </div>
                         </fieldset>
