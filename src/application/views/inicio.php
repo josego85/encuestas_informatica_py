@@ -32,7 +32,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
         function formSuccess(){
+            // Muestra el mensaje oculto.
             $("#msgSubmit").removeClass( "hidden" );
+
+            // Limpia el formulario.
+            $('form').get(0).reset();
         }
     </script>
 </head>
@@ -45,20 +49,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                    <br/>
                    <div class="panel panel-default">
                        <div class="panel-heading text-center">
-                           <h1>Encuesta sobre inform&aacute;ticos de Paraguay</h1>
+                           <h1><a href="inicio">Encuesta sobre inform&aacute;ticos de Paraguay</h1>
                        </div>
                    </div>
                </div>
            </div>
-
-           <div class="row">
-               <div class="col-md-6">
-                  <h3 class="resultados">Resultados</h3>
-               </div>
-               <div class="col-md-6">
-                  <h3 class="contactos">Contactos</h3>
-               </div>
-           </div>
+           <?php $this->load->view('comunes/menu');?>
       </div>
     </header>
 

@@ -28,7 +28,7 @@ class Encuesta extends CI_Controller {
 			'encuesta_longitud' => $p_longitud,
 		);
 
-		if($this->encuestas->insertarEncuesta($v_datos)){
+		if($this->encuestas->insertar_encuesta($v_datos)){
 			echo json_encode("OK");
 		}else{
 			 echo json_encode("NOK");
