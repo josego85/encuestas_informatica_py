@@ -18,7 +18,7 @@ class Departamentos_m extends CI_Model {
 	public function get_departamento($p_longitud, $p_latitud){
 		$query = "SELECT departamento_id
           FROM departamentos
-          WHERE ST_CONTAINS(geom, POINT($p_longitud, $p_latitud)
+          WHERE CONTAINS(geom, POINT($p_longitud, $p_latitud)
         )";
 		$v_result = $this->db->query($query);
 		return $v_result;
