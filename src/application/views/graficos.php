@@ -44,6 +44,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             }]
                         },
                         options: {
+                            title: {
+                                display: true,
+                                text: 'Sexo',
+                                fontSize: 20
+                            },
                             tooltips: {
                                 callbacks: {
                                     label: function(tooltipItem, data) {
@@ -104,7 +109,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             },
                             title: {
                                 display: true,
-                                text: 'Departamentos de Paraguay'
+                                text: 'Lugares de trabajo por departamento',
+                                fontSize: 20
                             },
                             scales: {
                                 xAxes: [{

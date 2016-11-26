@@ -17,7 +17,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         });
 
         function submitForm(){
-            console.log("enviar2");
             $.ajax({
                 type: "POST",
                 url: "Encuesta/enviarDatos",
@@ -68,7 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="form-group">
                                 <label class="col-xs-3 control-label">Sexo</label>
                                 <div class="col-xs-5 selectContainer">
-                                    <select class="form-control" name="sexo">
+                                    <select class="form-control" name="sexo" required>
                                         <option value="" hidden>Seleccionar sexo</option>
                                         <option value="m">Masculino (M)</option>
                                         <option value="f">Femenino (F)</option>
