@@ -18,12 +18,14 @@ class Encuesta extends CI_Controller {
 	}
 
 	public function enviarDatos(){
-		$p_sexo = $this->input->post('sexo', true);
+		$p_genero = $this->input->post('genero', true);
+		$p_edad = $this->input->post('edad', true);
 		$p_latitud = $this->input->post('latitud', true);
 		$p_longitud = $this->input->post('longitud', true);
 
 		$v_datos = array(
-			'encuesta_sexo' => $p_sexo,
+			'encuesta_genero' => $p_genero,
+			'encuesta_edad' => $p_edad,
 			'encuesta_latitud' => $p_latitud,
 			'encuesta_longitud' => $p_longitud,
 		);

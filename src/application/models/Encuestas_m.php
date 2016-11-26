@@ -28,12 +28,12 @@ class Encuestas_m extends CI_Model {
     public function get_genero(){
         return $this->db->query(
             "SELECT
-              (SELECT CASE WHEN encuesta_sexo is NULL OR 'f'
-                  THEN 0 ELSE COUNT(encuesta_sexo) END FROM encuestas
-                  WHERE encuesta_sexo = 'm') cantidad_genero_masc,
-              (SELECT CASE WHEN encuesta_sexo is NULL OR 'm'
-                  THEN 0 ELSE COUNT(encuesta_sexo) END FROM encuestas
-                  WHERE encuesta_sexo = 'f') cantidad_genero_fem"
+              (SELECT CASE WHEN encuesta_genero is NULL OR 'f'
+                  THEN 0 ELSE COUNT(encuesta_genero) END FROM encuestas
+                  WHERE encuesta_genero = 'm') cantidad_genero_masc,
+              (SELECT CASE WHEN encuesta_genero is NULL OR 'm'
+                  THEN 0 ELSE COUNT(encuesta_genero) END FROM encuestas
+                  WHERE encuesta_genero = 'f') cantidad_genero_fem"
         );
     }
 

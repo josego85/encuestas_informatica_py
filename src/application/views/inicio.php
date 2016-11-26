@@ -70,31 +70,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <label class="radio-inline">
-                                                <input type="radio" name="genero" value="f">Femenino
+                                                <input type="radio" name="genero" value="f" required>Femenino
                                             </label>
                                         </div>
                                         <div class="col-sm-4">
                                             <label class="radio-inline">
-                                                <input type="radio" name="genero" value="m">Masculino
+                                                <input type="radio" name="genero" value="m" required>Masculino
                                             </label>
                                         </div>
                                     </div>
                                 </div>
-                            </div> <!-- form-group -->
-<!--
+                            </div>
+                            <!-- form-group -->
+
                             <div class="form-group">
                                 <label for="edad" class="col-sm-3 control-label">Edad</label>
                                 <div class="col-sm-9">
-                                    <select name="edad" class="form-control">
-                                        <option> Menores a 18</option>
-                                        <option>18-25</option>
-                                        <option>26-30</option>
-                                        <option>31-40</option>
-                                        <option>41-50</option>
-                                        <option>Mayores a 50</option>
-                                    </select>
+                                    <input type="number" name="edad" placeholder="Edad" class="form-control" min="1" max="99" step="1" data-bind="value:replyNumber" required>
+                                    <span class="help-block">Edad, ej.: 31</span>
                                 </div>
-                            </div>--> 
+                            </div>
                             <!-- form-group -->
 
                             <div class="form-group">
