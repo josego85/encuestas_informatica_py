@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php $this->load->view('comunes/cabecera');?>
 
     <style>
-        graficoSexo graficoUbicacion {
+        graficoGenero graficoUbicacion {
             -moz-user-select: none;
             -webkit-user-select: none;
             -ms-user-select: none;
@@ -18,17 +18,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <script>
         window.onload = function() {
-            getGraficoSexo();
+            getGraficoGenero();
             getUbicacion();
         };
 
-        function getGraficoSexo(){
+        function getGraficoGenero(){
             $.ajax({
                 type: "POST",
-                url: "Graficos/getGraficoSexo",
+                url: "Graficos/getGraficoGenero",
                 dataType: 'json',
                 success: function(p_datos){
-                    var contexto = document.getElementById("graficoSexo").getContext('2d');
+                    var contexto = document.getElementById("graficoGenero").getContext('2d');
                     var myChart = new Chart(contexto, {
                         type: 'pie',
                         data: {
@@ -39,14 +39,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     "#e74c3c"
                               ],
                               data: [
-                                  p_datos['cantidad_sexo_masc'],
-                                  p_datos['cantidad_sexo_fem']]
+                                  p_datos['cantidad_genero_masc'],
+                                  p_datos['cantidad_genero_fem']]
                             }]
                         },
                         options: {
                             title: {
                                 display: true,
-                                text: 'Sexo',
+                                text: 'G\u00E9nero',
                                 fontSize: 20
                             },
                             tooltips: {
@@ -123,8 +123,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         display : false
                                     },
                                     ticks: {
-                                        stepSize: 1,
-                                         min: 0
+                                        stepSize: 5,
+                                        min: 0
                                     }
                                 }]
                             }
@@ -159,7 +159,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <div class="container" style="width: 75%;">
         <div class="row">
-            <canvas id="graficoSexo"></canvas>
+            <canvas id="graficoGenero"></canvas>
         </div>
     </div>
     </br>

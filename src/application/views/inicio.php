@@ -61,19 +61,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <div class="col-md-6">
                 <div class="well well-sm">
-                    <form id="encuesta" class="encuesta" method="post">
+                    <form id="encuesta" class="form-horizontal encuesta" method="post" role="form">
                         <fieldset>
                             <legend class="text-center header">Encuesta</legend>
                             <div class="form-group">
-                                <label class="col-xs-3 control-label">Sexo</label>
-                                <div class="col-xs-5 selectContainer">
-                                    <select class="form-control" name="sexo" required>
-                                        <option value="" hidden>Seleccionar sexo</option>
-                                        <option value="m">Masculino (M)</option>
-                                        <option value="f">Femenino (F)</option>
+                                <label class="control-label col-sm-3">G&eacute;nero</label>
+                                <div class="col-sm-6">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="genero" value="f">Femenino
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="genero" value="m">Masculino
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- form-group -->
+<!--
+                            <div class="form-group">
+                                <label for="edad" class="col-sm-3 control-label">Edad</label>
+                                <div class="col-sm-9">
+                                    <select name="edad" class="form-control">
+                                        <option> Menores a 18</option>
+                                        <option>18-25</option>
+                                        <option>26-30</option>
+                                        <option>31-40</option>
+                                        <option>41-50</option>
+                                        <option>Mayores a 50</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div>--> 
+                            <!-- form-group -->
 
                             <div class="form-group">
                                 <div class="col-md-10 col-md-offset-1">

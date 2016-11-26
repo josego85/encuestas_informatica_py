@@ -18,10 +18,10 @@ class Graficos extends CI_Controller {
 		$this->load->view('graficos');
 	}
 
-	public function getGraficoSexo(){
-		// Se obtiene la cantidad_sexo_masc y
-		// la cantidad_sexo_fem
-		$query = $this->encuestas->get_sexo();
+	public function getGraficoGenero(){
+		// Se obtiene la cantidad_genero_masc y
+		// la cantidad_genero_fem
+		$query = $this->encuestas->get_genero();
 
 		echo json_encode($query->row());
 	}
