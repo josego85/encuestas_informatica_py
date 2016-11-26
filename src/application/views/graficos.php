@@ -8,9 +8,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <?php $this->load->view('comunes/cabecera');?>
 
+    <style>
+        graficoSexo graficoUbicacion {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
+
     <script>
         window.onload = function() {
             getGraficoSexo();
+            getUbicacion();
         };
 
         function getGraficoSexo(){
@@ -58,6 +67,68 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
             });
         }
+
+        // function
+        function getUbicacion(){
+            $.ajax({
+                type: "POST",
+                url: "Graficos/getUbicacion",
+                dataType: 'json',
+                success: function(p_datos){
+                    var contexto = document.getElementById("graficoUbicacion").getContext('2d');
+                    var v_array_departamentos = Array();
+            		var v_array_cantidad = Array();
+            		for(var v_departamento_id in p_datos){
+            			v_array_departamentos.push(p_datos[v_departamento_id].nombre);
+            			v_array_cantidad.push(p_datos[v_departamento_id].cantidad);
+            		}
+
+                    var barData = {
+                        labels: v_array_departamentos,
+                        datasets: [{
+                            label: 'Departamentos',
+                            backgroundColor: 'rgba(128,164,237, 0.8)',
+                            borderColor: 'rgba(128,164,237, 1)',
+                            borderWidth: 1,
+                            data: v_array_cantidad
+                        }]
+                    };
+
+                    var myChart = new Chart(contexto, {
+                        type: 'bar',
+                        data: barData,
+                        options: {
+                            responsive: true,
+                            legend: {
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: 'Departamentos de Paraguay'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    gridLines : {
+                                        display : false
+                                    }
+                                }],
+                                yAxes: [{
+                                    gridLines : {
+                                        display : false
+                                    },
+                                    ticks: {
+                                        stepSize: 1
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                },
+                error: function(){
+                    alert("failure");
+                }
+            });
+        }
     </script>
 
 </head>
@@ -79,7 +150,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
     </header>
 
-    <canvas id="graficoSexo"></canvas>
+    <div class="container" style="width: 75%;">
+        <div class="row">
+            <canvas id="graficoSexo"></canvas>
+        </div>
+    </div>
+    </br>
+    </br>
+    <div class="container" style="width: 75%;">
+        <div class="row">
+            <canvas id="graficoUbicacion"></canvas>
+        </div>
+    </div>
 
     <footer>
         <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">

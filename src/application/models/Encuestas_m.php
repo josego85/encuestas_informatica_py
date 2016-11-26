@@ -38,6 +38,16 @@ class Encuestas_m extends CI_Model {
     }
 
     /**
+     * @Method get_listado_encuestas
+     * @param void
+     * @return boolean
+     */
+    public function get_listado_encuestas(){
+        $this->db->select("*");
+        return $this->db->get('encuestas');
+    }
+
+    /**
      * Recupera la cantidad de filas (reales si se uso sql_calc_found_rows) de
      * la ultima consulta que se haya ejecutado
      * @return integer
