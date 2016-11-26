@@ -100,11 +100,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="panel-body text-center">
                             <div id="mapa" class="mapa">
                             </div>
-                            <hr />
-                            <h4>Info</h4>
-                            <div>
-                                Encuesta An&oacute;nima<br />
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -113,7 +108,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 
     <footer>
-        <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+        <nav class="navbar navbar-default" role="navigation">
             <div class="container text-center">
                 <p class="navbar-text col-md-12 col-sm-12 col-xs-12">
                     <?php $this->load->view('comunes/pie_pagina');?>

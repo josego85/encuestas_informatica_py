@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 type: "POST",
                 url: "Graficos/getGraficoSexo",
                 dataType: 'json',
-                success: function(datos){
+                success: function(p_datos){
                     var contexto = document.getElementById("graficoSexo").getContext('2d');
                     var myChart = new Chart(contexto, {
                         type: 'pie',
@@ -39,8 +39,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     "#e74c3c"
                               ],
                               data: [
-                                  datos['cantidad_sexo_masc'],
-                                  datos['cantidad_sexo_fem']]
+                                  p_datos['cantidad_sexo_masc'],
+                                  p_datos['cantidad_sexo_fem']]
                             }]
                         },
                         options: {
@@ -123,7 +123,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         display : false
                                     },
                                     ticks: {
-                                        stepSize: 1
+                                        stepSize: 1,
+                                         min: 0
                                     }
                                 }]
                             }
@@ -170,7 +171,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 
     <footer>
-        <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+        <nav class="navbar navbar-default" role="navigation">
             <div class="container text-center">
                 <p class="navbar-text col-md-12 col-sm-12 col-xs-12">
                     <?php $this->load->view('comunes/pie_pagina');?>
