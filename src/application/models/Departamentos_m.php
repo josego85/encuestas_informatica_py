@@ -11,6 +11,7 @@ class Departamentos_m extends CI_Model {
     /**
 	 * Devuelve el departamento especifico de Paraguay.
 	 * Se le pasa como parametro la latitud y la longitud.
+     * @method get_departamento
 	 * @param int $p_longitude
 	 * @param int $p_latitude
 	 * @return Object
@@ -26,6 +27,7 @@ class Departamentos_m extends CI_Model {
 
 	/**
 	 * Devuelve todos los departamentos de Paraguay.
+     * @method get_departamentos
 	 * @param void
 	 * @return Array
 	 */
@@ -38,6 +40,7 @@ class Departamentos_m extends CI_Model {
     /**
      * Recupera la cantidad de filas (reales si se uso sql_calc_found_rows) de
      * la ultima consulta que se haya ejecutado
+     * @method get_cantidad_resultados
      * @return integer
      */
     public function get_cantidad_resultados(){

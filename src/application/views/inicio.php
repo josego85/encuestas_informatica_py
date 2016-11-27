@@ -21,8 +21,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 type: "POST",
                 url: "Encuesta/enviarDatos",
                 data: $('form.encuesta').serialize(),
-                success: function(msg){
-                    formSuccess();
+                dataType: 'json',
+                success: function(respuesta){
+                    if(respuesta.success){
+                        formSuccess();
+                    }else{
+                         // Muestra el mensaje oculto.
+                         // @todo mostrar los errores que vienen del php
+                         $("#msgErrores").removeClass( "hidden" );
+                    }
                 },
                 error: function(){
                     alert("failure");
@@ -64,6 +71,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <form id="encuesta" class="form-horizontal encuesta" method="post" role="form">
                         <fieldset>
                             <legend class="text-center header">Encuesta</legend>
+                            <div id="msgErrores" class="h3 text-center hidden">Errores!!!</div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">T&iacute;tulo universitario</label>
+                                <div class="col-sm-6">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="titulo_universitario" value="si">S&iacute;
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="titulo_universitario" value="no">No
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- form-group -->
+
                             <div class="form-group">
                                 <label class="control-label col-sm-3">G&eacute;nero</label>
                                 <div class="col-sm-6">
@@ -86,7 +113,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="form-group">
                                 <label for="edad" class="col-sm-3 control-label">Edad</label>
                                 <div class="col-sm-9">
-                                    <input type="number" name="edad" placeholder="Edad" class="form-control" min="1" max="99" step="1" data-bind="value:replyNumber" required>
+                                    <input type="number" name="edad" placeholder="Edad" class="form-control"
+                                      min="1" max="99" step="1" data-bind="value:replyNumber"
+                                      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                      maxlength = "2" required>
                                     <span class="help-block">Edad, ej.: 31</span>
                                 </div>
                             </div>
