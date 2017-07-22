@@ -123,6 +123,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <!-- form-group -->
 
                             <div class="form-group">
+                                <div class="col-sm-9">
+                                    
+                                </div>
+                            </div>
+                            <!-- form-group -->
+
+                            <div class="form-group">
                                 <div class="col-md-10 col-md-offset-1">
                                     <input id="latitud" name="latitud" type="hidden" placeholder="Latitud" class="form-control">
                                 </div>
