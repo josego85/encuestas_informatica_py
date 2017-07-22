@@ -8,7 +8,14 @@ function cargarMapa(){
 	var zoom = 14;
 
     // Se instancia el objeto mapa.
-	mapa =  L.map('mapa').setView([latitud, longitud], zoom);
+	mapa =  L.map('mapa', {
+		fullscreenControl: true,
+  		fullscreenControlOptions: {
+			title: 'Pantalla completa',
+  			titleCancel: 'Salir de la pantalla completa',
+    		position: 'topleft'
+  		}
+	}).setView([latitud, longitud], zoom);
 
 	// Humanitarian Style.
 	var layer_osm = L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {

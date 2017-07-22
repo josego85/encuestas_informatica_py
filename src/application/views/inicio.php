@@ -146,6 +146,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <button type="submit" id="submit" class="btn btn-primary btn-lg">Enviar</button>
                                 <div id="msgSubmit" class="h3 text-center hidden">
                                     Encuesta enviada!!!
+                                    </br>
                                     <a href="Graficos">Resultados</a>
                                 </div>
                             </div>
