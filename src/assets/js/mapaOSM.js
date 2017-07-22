@@ -24,6 +24,14 @@ function cargarMapa(){
           'OpenStreetMap Contributors </a> Tiles \u00a9 HOT'
 	}).addTo(mapa);
 
+	// Control para la localizacion.
+	var lc = L.control.locate({
+	    position: 'topleft',
+	    strings: {
+	        title: "Donde me encuentro!!!"
+	    }
+	}).addTo(mapa);
+
     // Buscador.
     var buscador = mapa.addControl(new L.Control.Search({
 		url: 'http://nominatim.openstreetmap.org/search/py?format=json&q=%2C+py+{s}',
