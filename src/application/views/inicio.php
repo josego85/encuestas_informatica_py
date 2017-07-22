@@ -135,7 +135,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="form-group">
                                 <div class="text-center"><h3>Donde Trabajas</h3></div>
                                 <div class="panel-body text-center">
-                                    <div id="mapa" class="mapa">
+                                    <div id="mapa" class="text-align:center mapa">
                                     </div>
                                 </div>
                             </div>
