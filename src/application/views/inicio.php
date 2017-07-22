@@ -66,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="well well-sm">
                     <form id="encuesta" class="form-horizontal encuesta" method="post" role="form">
                         <fieldset>
@@ -123,13 +123,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <!-- form-group -->
 
                             <div class="form-group">
-                                <div class="col-sm-9">
-                                    
-                                </div>
-                            </div>
-                            <!-- form-group -->
-
-                            <div class="form-group">
                                 <div class="col-md-10 col-md-offset-1">
                                     <input id="latitud" name="latitud" type="hidden" placeholder="Latitud" class="form-control">
                                 </div>
@@ -137,25 +130,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <input id="longitud" name="longitud" type="hidden" placeholder="Longitud" class="form-control">
                                 </div>
                             </div>
+                            <!-- form-group -->
+
                             <div class="form-group">
-                                <div class="col-md-12 text-center">
-                                    <button type="submit" id="submit" class="btn btn-primary btn-lg">Enviar</button>
-                                    <div id="msgSubmit" class="h3 text-center hidden">Encuesta enviada!!!</div>
+                                <div class="text-center"><h3>Donde Trabajas</h3></div>
+                                <div class="panel-body text-center">
+                                    <div id="mapa" class="mapa">
+                                    </div>
                                 </div>
                             </div>
+                            <!-- form-group -->
                         </fieldset>
-                    </form>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div>
-                    <div class="panel panel-default">
-                        <div class="text-center header">Donde Trabajas</div>
-                        <div class="panel-body text-center">
-                            <div id="mapa" class="mapa">
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" id="submit" class="btn btn-primary btn-lg">Enviar</button>
+                                <div id="msgSubmit" class="h3 text-center hidden">
+                                    Encuesta enviada!!!
+                                    <a href="Graficos">Resultados</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
