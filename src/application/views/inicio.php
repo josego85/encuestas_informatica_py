@@ -10,6 +10,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script>
         $(document).ready(function(){
             $("#encuesta").submit(function(event){
+                var latitud = document.getElementById('latitud').value;
+                var longitud = document.getElementById('longitud').value;
+                if(latitud == "-25.2961407" && longitud == "-57.6309129"){
+                    alert("Mueve el marcador en el lugar donde trabajas!!!");
+                    return false;
+                }
                 // Cancels the form submission.
                 event.preventDefault();
                 submitForm();
