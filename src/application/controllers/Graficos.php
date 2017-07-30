@@ -68,4 +68,12 @@ class Graficos extends CI_Controller {
 		header('Content-type: application/json; charset=utf-8');
 		echo $json;
 	}
+
+	public function getTituloUniversitario(){
+		// Se obtiene la cantidad_titulo_universitario_si y
+		// la cantidad_titulo_universitario_no
+		$query = $this->encuestas->get_titulo_universitario();
+
+		echo json_encode($query->row());
+	}
 }

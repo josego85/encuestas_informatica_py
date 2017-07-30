@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php $this->load->view('comunes/cabecera');?>
 
     <style>
-        graficoGenero graficoUbicacion {
+        graficoTituloUniversitario graficoGenero graficoUbicacion{
             -moz-user-select: none;
             -webkit-user-select: none;
             -ms-user-select: none;
@@ -18,9 +18,61 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <script>
         window.onload = function() {
+            getGraficoTituloUniversitario();
             getGraficoGenero();
-            getUbicacion();
+            getGraficoUbicacion();
         };
+
+        function getGraficoTituloUniversitario(){
+            $.ajax({
+                type: "POST",
+                url: "Graficos/getTituloUniversitario",
+                dataType: 'json',
+                success: function(p_datos){
+                    var contexto = document.getElementById("graficoTituloUniversitario").getContext('2d');
+                    var myChart = new Chart(contexto, {
+                        type: 'pie',
+                        data: {
+                            labels: ["Si","No"],
+                            datasets: [{
+                                backgroundColor: [
+                                    "#704ED5",
+                                    "#24A04A"
+                              ],
+                              data: [
+                                  p_datos['cantidad_titulo_universitario_si'],
+                                  p_datos['cantidad_titulo_universitario_no']]
+                            }]
+                        },
+                        options: {
+                            title: {
+                                display: true,
+                                text: 'T\u00EDtulo universitario',
+                                fontSize: 20
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    label: function(tooltipItem, data) {
+                                        var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                        var tooltipLabel = data.labels[tooltipItem.index];
+                                        var tooltipData = allData[tooltipItem.index];
+                                        var total = 0;
+                                        for (var i in allData) {
+                                            total += allData[i] * 1;
+                                        }
+                                        var tooltipPercentage = Math.round((tooltipData / total) * 100);
+                                        return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                                    }
+                                }
+                            }
+                        }
+                    });
+                },
+                error: function(){
+                    alert("failure");
+                }
+            });
+        }
 
         function getGraficoGenero(){
             $.ajax({
@@ -74,7 +126,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
         // function
-        function getUbicacion(){
+        function getGraficoUbicacion(){
             $.ajax({
                 type: "POST",
                 url: "Graficos/getUbicacion",
@@ -157,6 +209,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
     </header>
 
+    <div class="container" style="width: 75%;">
+        <div class="row">
+            <canvas id="graficoTituloUniversitario"></canvas>
+        </div>
+    </div>
     <div class="container" style="width: 75%;">
         <div class="row">
             <canvas id="graficoGenero"></canvas>

@@ -48,6 +48,23 @@ class Encuestas_m extends CI_Model {
     }
 
     /**
+     * @Method get_titulo_universitario
+     * @param void
+     * @return boolean
+     */
+    public function get_titulo_universitario(){
+        return $this->db->query(
+            "SELECT
+              (SELECT CASE WHEN encuesta_genero is NULL OR 'si'
+                  THEN 0 ELSE COUNT(encuesta_titulo_universitario) END FROM encuestas
+                  WHERE encuesta_titulo_universitario = 'si') cantidad_titulo_universitario_si,
+              (SELECT CASE WHEN encuesta_titulo_universitario is NULL OR 'no'
+                  THEN 0 ELSE COUNT(encuesta_titulo_universitario) END FROM encuestas
+                  WHERE encuesta_titulo_universitario = 'no') cantidad_titulo_universitario_no"
+        );
+    }
+
+    /**
      * Recupera la cantidad de filas (reales si se uso sql_calc_found_rows) de
      * la ultima consulta que se haya ejecutado
      * @return integer
