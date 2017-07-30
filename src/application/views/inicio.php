@@ -149,9 +149,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                       </div>
                                       <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="actividades[]" value="Testing">
+                                            <input type="checkbox" name="actividades[]" value="Testear">
                                             <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                                Testing
+                                                Testear
                                         </label>
                                       </div>
                                       <div class="checkbox">
