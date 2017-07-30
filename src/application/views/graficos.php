@@ -214,6 +214,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <canvas id="graficoTituloUniversitario"></canvas>
         </div>
     </div>
+    </br>
+    </br>
     <div class="container" style="width: 75%;">
         <div class="row">
             <canvas id="graficoGenero"></canvas>
