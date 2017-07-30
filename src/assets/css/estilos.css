@@ -24,7 +24,8 @@ h3.resultados, h3.contactos {
 }
 
 .checkbox label, .radio label {
-    padding-left: 200px;
+    padding-left: 300px;
+    /*text-align: left;*/
 }
 
 .checkbox .cr {

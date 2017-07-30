@@ -128,37 +128,51 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                   <div class="col-sm-9">
                                       <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" value="">
+                                            <input type="checkbox" name="actividades[]" value="Organizar Proyectos">
                                             <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                                 Organizar Proyectos
                                         </label>
                                       </div>
-                                        <div class="checkbox">
+                                      <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" value="">
+                                            <input type="checkbox" name="actividades[]" value="Analizar">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                Analizar
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="actividades[]" value="Programar">
                                             <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                                 Programar
                                         </label>
                                       </div>
                                       <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" value="">
+                                            <input type="checkbox" name="actividades[]" value="Testing">
                                             <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                                 Testing
                                         </label>
                                       </div>
                                       <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" value="">
+                                            <input type="checkbox" name="actividades[]" value="Infraestructura">
                                             <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                                 Infraestructura
                                         </label>
                                       </div>
                                       <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" value="">
+                                            <input type="checkbox" name="actividades[]" value="Soporte Usuarios">
                                             <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                                 Soporte Usuarios
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="actividades[]" value="Soporte Tecnico">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                Soporte T&eacute;cnico
                                         </label>
                                       </div>
                                  </div>
