@@ -50,6 +50,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 text: 'T\u00EDtulo universitario',
                                 fontSize: 20
                             },
+                            pieceLabel: {
+                                // mode 'label', 'value' or 'percentage', default is 'percentage'
+                                mode: 'value',
+
+                                // precision for percentage, default is 0
+                                precision: 0,
+
+                                //identifies whether or not labels of value 0 are displayed, default is false
+                                showZero: true,
+
+                                // font size, default is defaultFontSize
+                                fontSize: 14,
+
+                                // font color, default is '#fff'
+                                fontColor: '#fff',
+
+                                // font style, default is defaultFontStyle
+                                fontStyle: 'normal',
+
+                                // font family, default is defaultFontFamily
+                                fontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+
+                                // position to draw label, available value is 'default', 'border' and 'outside'
+                                // default is 'default'
+                                position: 'default',
+
+                                // format text, work when mode is 'value'
+                                format: function (value) {
+                                    return value;
+                                }
+                            },
                             tooltips: {
                                 callbacks: {
                                     label: function(tooltipItem, data) {
@@ -100,6 +131,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 display: true,
                                 text: 'G\u00E9nero',
                                 fontSize: 20
+                            },
+                            pieceLabel: {
+                                // mode 'label', 'value' or 'percentage', default is 'percentage'
+                                mode: 'value',
+
+                                // precision for percentage, default is 0
+                                precision: 0,
+
+                                //identifies whether or not labels of value 0 are displayed, default is false
+                                showZero: true,
+
+                                // font size, default is defaultFontSize
+                                fontSize: 14,
+
+                                // font color, default is '#fff'
+                                fontColor: '#fff',
+
+                                // font style, default is defaultFontStyle
+                                fontStyle: 'normal',
+
+                                // font family, default is defaultFontFamily
+                                fontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+
+                                // position to draw label, available value is 'default', 'border' and 'outside'
+                                // default is 'default'
+                                position: 'default',
+
+                                // format text, work when mode is 'value'
+                                format: function (value) {
+                                    return value;
+                                }
                             },
                             tooltips: {
                                 callbacks: {

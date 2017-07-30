@@ -12,6 +12,7 @@
 
 <!-- JS -->
 <script src="<?php echo base_url("/assets/js/libs/Chart.js/Chart.min.js"); ?>" type="text/javascript" charset="utf-8"></script>
+<script src="<?php echo base_url("/assets/js/libs/Chart.js/plugins/Chart.PieceLabel.min.js"); ?>" type="text/javascript" charset="utf-8"></script>
 <script src="<?php echo base_url("/assets/js/libs/JQuery/jquery-2.1.4.js"); ?>" type="text/javascript" charset="utf-8"></script>
 <script src="<?php echo base_url("/assets/css/libs/bootstrap-3.3.7-dist/js/bootstrap.min.js"); ?>" type="text/javascript" charset="utf-8"></script>
 <script src="<?php echo base_url("/assets/js/libs/Leaflet/leaflet.js"); ?>" type="text/javascript" charset="utf-8"></script>
