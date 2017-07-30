@@ -73,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <legend class="text-center header">Encuesta</legend>
                             <div id="msgErrores" class="h3 text-center hidden">Errores!!!</div>
                             <div class="form-group">
-                                <label class="control-label col-sm-3">T&iacute;tulo universitario</label>
+                                <label class="control-label col-sm-3">T&iacute;tulo universitario relacionado con la inform&aacute;tica</label>
                                 <div class="col-sm-6">
                                     <div class="row">
                                         <div class="col-sm-4">
