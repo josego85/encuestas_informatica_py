@@ -123,6 +123,50 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <!-- form-group -->
 
                             <div class="form-group">
+                                <label for="actividades" class="col-sm-3 control-label">Actividades</label>
+                                <div class="row">
+                                  <div class="col-sm-9">
+                                      <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                Organizar Proyectos
+                                        </label>
+                                      </div>
+                                        <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                Programar
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                Testing
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                Infraestructura
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                Soporte Usuarios
+                                        </label>
+                                      </div>
+                                 </div>
+                                </div>
+                            </div>
+                            <!-- form-group -->
+
+                            <div class="form-group">
                                 <div class="col-md-10 col-md-offset-1">
                                     <input id="latitud" name="latitud" type="hidden" placeholder="Latitud" class="form-control">
                                 </div>
