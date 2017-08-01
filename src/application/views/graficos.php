@@ -285,30 +285,48 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 dataType: 'json',
                 success: function(p_datos){
                     var contexto = document.getElementById("graficoActividades").getContext('2d');
+                    var datos = {
+                        label: 'Actividades',
+                        data: [
+                            p_datos['OrganizarProyectos'],
+                            p_datos['Analizar'],
+                            p_datos['Programar'],
+                            p_datos['Testear'],
+                            p_datos['Infraestructura'],
+                            p_datos['SoporteUsuarios'],
+                            p_datos['SoporteTecnico']
+                        ],
+                        backgroundColor: [
+                            'rgba(0, 99, 132, 0.6)',
+                            'rgba(30, 99, 132, 0.6)',
+                            'rgba(60, 99, 132, 0.6)',
+                            'rgba(90, 99, 132, 0.6)',
+                            'rgba(120, 99, 132, 0.6)',
+                            'rgba(150, 99, 132, 0.6)',
+                            'rgba(180, 99, 132, 0.6)',
+                            'rgba(210, 99, 132, 0.6)',
+                            'rgba(240, 99, 132, 0.6)'
+                        ],
+                        borderColor: [
+                            'rgba(0, 99, 132, 1)',
+                            'rgba(30, 99, 132, 1)',
+                            'rgba(60, 99, 132, 1)',
+                            'rgba(90, 99, 132, 1)',
+                            'rgba(120, 99, 132, 1)',
+                            'rgba(150, 99, 132, 1)',
+                            'rgba(180, 99, 132, 1)',
+                            'rgba(210, 99, 132, 1)',
+                            'rgba(240, 99, 132, 1)'
+                        ],
+                        borderWidth: 0,
+                        hoverBorderWidth: 0
+                    };
+
                     var myChart = new Chart(contexto, {
-                        type: 'pie',
+                        type: 'bar',
                         data: {
                             labels: ["Organizar Proyectos","Analizar","Programar","Testear","Infraestructura","Soporte Usuarios","Soporte Técnico"],
-                            datasets: [{
-                                backgroundColor: [
-                                    "#23157E",
-                                    "#801F1A",
-                                    "#D70012",
-                                    "#AAAB0A",
-                                    "#AB0A84",
-                                    "#1F4522",
-                                    "#00BD94"
-                              ],
-                              data: [
-                                  p_datos['OrganizarProyectos'],
-                                  p_datos['Analizar'],
-                                  p_datos['Programar'],
-                                  p_datos['Testear'],
-                                  p_datos['Infraestructura'],
-                                  p_datos['SoporteUsuarios'],
-                                  p_datos['SoporteTecnico']
-                              ]
-                            }]
+                            datasets: [datos]
                         },
                         options: {
                             title: {
@@ -316,37 +334,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 text: 'Actividades',
                                 fontSize: 20
                             },
-                            pieceLabel: {
-                                // mode 'label', 'value' or 'percentage', default is 'percentage'
-                                mode: 'value',
-
-                                // precision for percentage, default is 0
-                                precision: 0,
-
-                                //identifies whether or not labels of value 0 are displayed, default is false
-                                showZero: true,
-
-                                // font size, default is defaultFontSize
-                                fontSize: 14,
-
-                                // font color, default is '#fff'
-                                fontColor: '#fff',
-
-                                // font style, default is defaultFontStyle
-                                fontStyle: 'normal',
-
-                                // font family, default is defaultFontFamily
-                                fontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-
-                                // position to draw label, available value is 'default', 'border' and 'outside'
-                                // default is 'default'
-                                position: 'default',
-
-                                // format text, work when mode is 'value'
-                                format: function (value) {
-                                    return value;
-                                }
+                            scales: {
+                                yAxes: [{
+                                  barPercentage: 0
+                                }]
                             },
+                            elements: {
+                                rectangle: {
+                                    borderSkipped: 'left',
+                                }
+                            }
+                            // pieceLabel: {
+                            //     // mode 'label', 'value' or 'percentage', default is 'percentage'
+                            //     mode: 'value',
+                            //
+                            //     // precision for percentage, default is 0
+                            //     precision: 0,
+                            //
+                            //     //identifies whether or not labels of value 0 are displayed, default is false
+                            //     showZero: true,
+                            //
+                            //     // font size, default is defaultFontSize
+                            //     fontSize: 14,
+                            //
+                            //     // font color, default is '#fff'
+                            //     fontColor: '#fff',
+                            //
+                            //     // font style, default is defaultFontStyle
+                            //     fontStyle: 'normal',
+                            //
+                            //     // font family, default is defaultFontFamily
+                            //     fontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+                            //
+                            //     // position to draw label, available value is 'default', 'border' and 'outside'
+                            //     // default is 'default'
+                            //     position: 'default',
+                            //
+                            //     // format text, work when mode is 'value'
+                            //     format: function (value) {
+                            //         return value;
+                            //     }
+                            // },
                             // tooltips: {
                             //     callbacks: {
                             //         label: function(tooltipItem, data) {
