@@ -288,16 +288,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     var myChart = new Chart(contexto, {
                         type: 'pie',
                         data: {
-                            labels: ["Organizar Proyectos","Analizar","Programar","Testear","Infraestructura","Soporte Usuarios","Soporte T&eacute;cnico"],
+                            labels: ["Organizar Proyectos","Analizar","Programar","Testear","Infraestructura","Soporte Usuarios","Soporte Técnico"],
                             datasets: [{
                                 backgroundColor: [
                                     "#23157E",
                                     "#801F1A",
                                     "#A93906",
-                                    "#412167",
-                                    "#131A30",
+                                    "#AAAB0A",
+                                    "#AB0A84",
                                     "#1F4522",
-                                    "#262A30"
+                                    "#00BD94"
                               ],
                               data: [
                                   p_datos['OrganizarProyectos'],
