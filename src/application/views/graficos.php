@@ -201,7 +201,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             datasets: [{
                                 backgroundColor: [
                                     "#E11111",
-                                    "#4B6173",
+                                    "#198BD6",
                                     "#067B1B",
                                     "#D6B619",
                                     "#D61978"
