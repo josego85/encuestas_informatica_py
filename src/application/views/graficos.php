@@ -197,7 +197,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     var myChart = new Chart(contexto, {
                         type: 'pie',
                         data: {
-                            labels: ["18-25","26-30","31-35","36-40",">41"],
+                            labels: ["18-25","26-30","31-35","36-40","Mayor41"],
                             datasets: [{
                                 backgroundColor: [
                                     "#9493db",
