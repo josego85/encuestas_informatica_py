@@ -293,7 +293,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 backgroundColor: [
                                     "#23157E",
                                     "#801F1A",
-                                    "#A93906",
+                                    "#D70012",
                                     "#AAAB0A",
                                     "#AB0A84",
                                     "#1F4522",
