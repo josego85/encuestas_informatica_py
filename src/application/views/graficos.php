@@ -203,7 +203,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     "#9493db",
                                     "#e74c3c",
                                     "#e54c6c",
-                                    "#f753c",
+                                    "#f753cd",
                                     "#574c3c"
                               ],
                               data: [
