@@ -347,21 +347,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     return value;
                                 }
                             },
-                            tooltips: {
-                                callbacks: {
-                                    label: function(tooltipItem, data) {
-                                        var allData = data.datasets[tooltipItem.datasetIndex].data;
-                                        var tooltipLabel = data.labels[tooltipItem.index];
-                                        var tooltipData = allData[tooltipItem.index];
-                                        var total = 0;
-                                        for (var i in allData) {
-                                            total += allData[i] * 1;
-                                        }
-                                        var tooltipPercentage = Math.round((tooltipData / total) * 100);
-                                        return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
-                                    }
-                                }
-                            }
+                            // tooltips: {
+                            //     callbacks: {
+                            //         label: function(tooltipItem, data) {
+                            //             var allData = data.datasets[tooltipItem.datasetIndex].data;
+                            //             var tooltipLabel = data.labels[tooltipItem.index];
+                            //             var tooltipData = allData[tooltipItem.index];
+                            //             var total = 0;
+                            //             for (var i in allData) {
+                            //                 total += allData[i] * 1;
+                            //             }
+                            //             var tooltipPercentage = Math.round((tooltipData / total) * 100);
+                            //             return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                            //         }
+                            //     }
+                            // }
                         }
                     });
                 },
