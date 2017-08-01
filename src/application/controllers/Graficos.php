@@ -83,4 +83,11 @@ class Graficos extends CI_Controller {
 
 		echo json_encode($query->row());
 	}
+
+	public function getGraficoActividades(){
+		// Se obtiene todas las actividades.
+		$query = $this->encuestas->get_actividades();
+
+		echo json_encode($query->row());
+	}
 }

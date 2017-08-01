@@ -65,7 +65,7 @@ class Encuestas_m extends CI_Model {
     }
 
     /**
-     * @Method get_rango_edad
+     * @Method get_edad
      * @param void
      * @return boolean
      */
@@ -93,6 +93,45 @@ class Encuestas_m extends CI_Model {
                   else 0
                   end) Edad41
                 from encuestas");
+    }
+
+    /**
+     * @Method get_edad
+     * @param void
+     * @return boolean
+     */
+    public function get_actividades(){
+        return $this->db->query(
+            "select
+                sum(case
+                  when (actividad_descripcion = 'Organizar Proyectos') then 1
+                  else 0
+                  end) OrganizarProyectos,
+                sum(case
+                  when (actividad_descripcion = 'Analizar') then 1
+                  else 0
+                  end) Analizar,
+                sum(case
+                  when (actividad_descripcion = 'Programar') then 1
+                  else 0
+                  end) Programar,
+                sum(case
+                  when (actividad_descripcion = 'Testear') then 1
+                  else 0
+                  end) Testear,
+                sum(case
+                  when (actividad_descripcion = 'Infraestructura') then 1
+                  else 0
+                  end) Infraestructura,
+                sum(case
+                  when (actividad_descripcion = 'Soporte Usuarios') then 1
+                  else 0
+                  end) SoporteUsuarios,
+                sum(case
+                  when (actividad_descripcion = 'Soporte Tecnico') then 1
+                  else 0
+                  end) SoporteTecnico
+                from actividades");
     }
 
     /**

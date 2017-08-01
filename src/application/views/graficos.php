@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php $this->load->view('comunes/cabecera');?>
 
     <style>
-        graficoTituloUniversitario graficoGenero graficoUbicacion{
+        graficoTituloUniversitario graficoGenero getGraficoEdad getGraficoActividades graficoUbicacion{
             -moz-user-select: none;
             -webkit-user-select: none;
             -ms-user-select: none;
@@ -21,6 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             getGraficoTituloUniversitario();
             getGraficoGenero();
             getGraficoEdad();
+            getGraficoActividades();
             getGraficoUbicacion();
         };
 
@@ -187,6 +188,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
             });
         }
+
         function getGraficoEdad(){
             $.ajax({
                 type: "POST",
@@ -219,6 +221,99 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             title: {
                                 display: true,
                                 text: 'Edades',
+                                fontSize: 20
+                            },
+                            pieceLabel: {
+                                // mode 'label', 'value' or 'percentage', default is 'percentage'
+                                mode: 'value',
+
+                                // precision for percentage, default is 0
+                                precision: 0,
+
+                                //identifies whether or not labels of value 0 are displayed, default is false
+                                showZero: true,
+
+                                // font size, default is defaultFontSize
+                                fontSize: 14,
+
+                                // font color, default is '#fff'
+                                fontColor: '#fff',
+
+                                // font style, default is defaultFontStyle
+                                fontStyle: 'normal',
+
+                                // font family, default is defaultFontFamily
+                                fontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+
+                                // position to draw label, available value is 'default', 'border' and 'outside'
+                                // default is 'default'
+                                position: 'default',
+
+                                // format text, work when mode is 'value'
+                                format: function (value) {
+                                    return value;
+                                }
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    label: function(tooltipItem, data) {
+                                        var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                        var tooltipLabel = data.labels[tooltipItem.index];
+                                        var tooltipData = allData[tooltipItem.index];
+                                        var total = 0;
+                                        for (var i in allData) {
+                                            total += allData[i] * 1;
+                                        }
+                                        var tooltipPercentage = Math.round((tooltipData / total) * 100);
+                                        return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                                    }
+                                }
+                            }
+                        }
+                    });
+                },
+                error: function(){
+                    alert("failure");
+                }
+            });
+        }
+
+        function getGraficoActividades(){
+            $.ajax({
+                type: "POST",
+                url: "Graficos/getGraficoActividades",
+                dataType: 'json',
+                success: function(p_datos){
+                    var contexto = document.getElementById("graficoActividades").getContext('2d');
+                    var myChart = new Chart(contexto, {
+                        type: 'pie',
+                        data: {
+                            labels: ["Organizar Proyectos","Analizar","Programar","Testear","Infraestructura","Soporte Usuarios","Soporte T&eacute;cnico"],
+                            datasets: [{
+                                backgroundColor: [
+                                    "#23157E",
+                                    "#801F1A",
+                                    "#A93906",
+                                    "#412167",
+                                    "#131A30",
+                                    "#1F4522",
+                                    "#262A30"
+                              ],
+                              data: [
+                                  p_datos['OrganizarProyectos'],
+                                  p_datos['Analizar'],
+                                  p_datos['Programar'],
+                                  p_datos['Testear'],
+                                  p_datos['Infraestructura'],
+                                  p_datos['SoporteUsuarios'],
+                                  p_datos['SoporteTecnico']
+                              ]
+                            }]
+                        },
+                        options: {
+                            title: {
+                                display: true,
+                                text: 'Actividades',
                                 fontSize: 20
                             },
                             pieceLabel: {
@@ -377,6 +472,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="container" style="width: 75%;">
         <div class="row">
             <canvas id="graficoEdad"></canvas>
+        </div>
+    </div>
+    </br>
+    </br>
+    <div class="container" style="width: 75%;">
+        <div class="row">
+            <canvas id="graficoActividades"></canvas>
         </div>
     </div>
     </br>
