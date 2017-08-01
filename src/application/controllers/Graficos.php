@@ -76,4 +76,11 @@ class Graficos extends CI_Controller {
 
 		echo json_encode($query->row());
 	}
+
+	public function getGraficoEdad(){
+		// Se obtiene el rango de edades.
+		$query = $this->encuestas->get_edad();
+
+		echo json_encode($query->row());
+	}
 }

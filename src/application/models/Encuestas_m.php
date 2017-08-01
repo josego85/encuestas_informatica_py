@@ -65,6 +65,37 @@ class Encuestas_m extends CI_Model {
     }
 
     /**
+     * @Method get_rango_edad
+     * @param void
+     * @return boolean
+     */
+    public function get_edad(){
+        return $this->db->query(
+            "select
+                sum(case
+                  when (encuesta_edad between 18 and 25) then 1
+                  else 0
+                  end) Edad18a25,
+                sum(case
+                  when (encuesta_edad between 26 and 30) then 1
+                  else 0
+                  end) Edad26a30,
+                sum(case
+                  when (encuesta_edad between 31 and 35) then 1
+                  else 0
+                  end) Edad31a35,
+                sum(case
+                  when (encuesta_edad between 36 and 40) then 1
+                  else 0
+                  end) Edad36a40,
+                sum(case
+                  when (encuesta_edad between 41 and 99) then 1
+                  else 0
+                  end) Edad41
+                from encuestas");
+    }
+
+    /**
      * Recupera la cantidad de filas (reales si se uso sql_calc_found_rows) de
      * la ultima consulta que se haya ejecutado
      * @return integer
